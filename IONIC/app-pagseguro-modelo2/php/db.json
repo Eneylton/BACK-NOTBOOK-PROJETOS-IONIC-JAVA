@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Casaco Bege",
+      "price": 755.37,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20000453_006_original_4.jpg?1559940447"
+    },
+    {
+      "id": 2,
+      "name": "ad anim",
+      "price": 380.34,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20021767_124_original_4.jpg?1558983599"
+    }
+  ],
+  "categories": [
+    {"name": "Roupas"}
+  ]
+}

@@ -1,0 +1,105 @@
+page-produto-detalhe {
+  .detalhes{
+    background: #eeeeee;
+    .banner{
+      ion-img{
+        background: white;
+      }
+      img{
+        margin: 0 auto;
+      }
+    }
+    span{
+      color: #000;
+    }
+    .btn{
+      width: 100%;
+      text-align: center;
+      padding: 22px;
+    }
+    .btn-comprar{
+      background: #e62f17;
+      box-shadow: none;
+      span{
+        color: #fff;
+      }
+    }
+    .btn-carrinho{
+      border:1px solid #e62f17;
+      background: transparent;
+      box-shadow: none;
+      span{
+        color: #e62f17;
+      }
+    }
+    .titulo{
+      margin: 0;
+      font-size: 22px;
+      color: #000;
+      font-weight: 300;
+      white-space: normal;
+    }
+    .descProd{
+      margin: 10px 0 0;
+      font-size: 17px;
+      color: #333;
+      font-weight: 400;
+      white-space: normal;
+    }
+    .valor{
+      font-weight: 400;
+      font-size: 22px;
+      white-space: normal;
+      color: #000;
+    }
+  }
+  .maisprod{
+    background: #fff;
+    overflow: hidden;
+    .titulomais{
+      font-weight: 500;
+    }
+    ion-label{
+      font-size: 15px !important;
+      margin: 0;
+    }
+  }
+  @-webkit-keyframes animateInPrimary {
+    0% {
+      -webkit-transform: translate3d(-100%,0,0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(0,0,0);
+    }
+  }
+
+  @-webkit-keyframes animateInSecondary{
+
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-in-primary {
+    -webkit-animation: animateInPrimary;
+    animation: animateInPrimary;
+    -webkit-animation-duration: 750ms;
+    animation-duraton: 750ms;
+  }
+
+  .animate-in-secondary {
+    -webkit-animation: animateInSecondary ease-in 1;
+    animation: animateInSecondary ease-in 1;
+    -webkit-animation-duration: 750ms;
+    animation-duraton: 750ms;
+  }
+}

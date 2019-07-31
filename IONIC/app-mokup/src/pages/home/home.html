@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+
+    <ion-list *ngFor="let contato of contatos">
+      <ion-item-sliding>
+        <ion-item>
+         
+          <h2>{{ contato.nome }}</h2>
+          <h3>{{ contato.email }}</h3>
+          <p>{{  contato.whatsapp}}</p>
+        </ion-item>
+      
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="cadidatoEditar(contato)">
+              <ion-icon name="logo-angular"></ion-icon>
+            Editar
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+</ion-content>
+

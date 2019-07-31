@@ -1,0 +1,35 @@
+package Programa;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import Model.Pessoa;
+
+public class cadastroPessoa {
+
+	public static void main(String[] args) {
+
+		Pessoa pes1 = new Pessoa(null,"Eneylton Barrros","eneylton@gmail.com");
+		Pessoa pes2 = new Pessoa(null,"Maria Barrros","maria@gmail.com");
+		Pessoa pes3 = new Pessoa(null,"Elias Barrros","elias@gmail.com");
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		
+		em.persist(pes1);
+		em.persist(pes2);
+		em.persist(pes3);
+		
+		em.getTransaction().commit();
+
+		 System.out.println("Cadatro Relaizado com sucesso !!!");
+		
+		emf.close();
+		em.close();
+	}
+
+}

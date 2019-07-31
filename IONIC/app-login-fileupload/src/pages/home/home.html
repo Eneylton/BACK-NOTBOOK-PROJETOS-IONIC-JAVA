@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Bem vindos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-title>
+    Você está logado.....
+  </ion-title>
+
+  <ion-card>
+
+      <img style="padding:10px; float: left; height: 100px; width: 100px;" src="{{imgUrl}}" alt="{{displayName}}">
+
+    <ion-card-content>
+      <p style="color: rgb(0, 226, 68)">Usuário:</p>
+      <h1>{{displayName}}</h1>
+     
+      {{ displayEmail}}
+    </ion-card-content>
+  </ion-card>
+  <button color="danger" ion-button block (click)="signOut()">Sair</button>
+
+</ion-content>

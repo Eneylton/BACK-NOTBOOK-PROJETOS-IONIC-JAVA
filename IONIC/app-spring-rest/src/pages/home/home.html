@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+
+        <ion-card-header>
+          <h1>Categoria</h1>
+        </ion-card-header>
+      
+        <ion-card-content *ngFor="let cat of categorias" >
+            <h2>{{ cat.nome }}</h2>
+        </ion-card-content>
+      
+      </ion-card>
+
+</ion-content>

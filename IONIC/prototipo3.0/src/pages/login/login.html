@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+  </ion-navbar>
+</ion-header>
+
+<ion-content scroll="false">
+  
+  <div class="splash-info">
+   
+    <ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">
+      <ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds"
+        [ngStyle]="{'background-image': 'url(' + background +')'}">
+      </ion-slide>
+    </ion-slides>
+
+    <div class="login-container">
+        <img class="logo" src="assets/imgs/logo-canon.png" />
+        <strong>Login:</strong>
+        <ion-item>
+        <ion-input type="text" placeholder="Login" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <button ion-button margin color="primary" (click)="login()" >ENTRAR</button>
+        <p (click)="openPage('signup')"><strong>Ainda não sou cadastrado ?</strong></p>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <button color="face" ion-button icon-only block class="btn-facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col col-4>
+              <button color="twitter" ion-button icon-only block class="btn-twitter">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col col-4>
+              <button color="gmail" ion-button icon-only block class="btn-gplus">
+                <ion-icon name="logo-googleplus"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+    </div>
+
+  </div>
+
+</ion-content>

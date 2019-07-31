@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Open+Sans:300,400,600,700,800");
+body {
+  font-family: 'Lato', sans-serif !important; }
+
+.ion-content {
+  background: #f8f8f8; }
+
+.toolbar-background {
+  background: #e62f17; }
+
+.toolbar-title-md {
+  color: white; }
+
+.button-inner {
+  color: white; }
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: #e62f17; }
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-text {
+  color: #e62f17; }
+
+.menu-inner .content {
+  background: #e62f17; }
+  .menu-inner .content .item-md {
+    background: #e62f17; }
+    .menu-inner .content .item-md ion-label {
+      color: #fff; }
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>Editar perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="perfil">
+  <div class="endereco">
+    <ion-label class="titulo">Dados do endereço</ion-label>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Digite seu cep <strong>{{cep}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.cep"  placeholder="Digite o seu cep"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Digite a seu endereço <strong>{{endereco}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.endereco"  placeholder="Digite o seu endereço"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Digite a sua numero <strong>{{numero}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.numero"  placeholder="Digite o seu numero"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Digite a sua complemento <strong>{{complemento}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.complemento"  placeholder="Digite o seu complemento"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Digite a sua bairro <strong>{{bairro}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.bairro" placeholder="Digite o seu bairro"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Digite a sua cidade <strong>{{cidade}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.cidade" placeholder="Digite a sua cidade"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Digite a sua estado <strong>{{estado}}</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="userData.estado" placeholder="Digite o seu estado"></ion-input>
+        <ion-input type="hidden" [(ngModel)]="userData.id" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <button class="buttom" ion-button full (click)="inserirEndereco()">Cadastrar</button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

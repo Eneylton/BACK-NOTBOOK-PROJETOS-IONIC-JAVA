@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Lista de Estado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-buttons>
+        <button start icon-only ion-button color="secondary" (click)="openCamera()">
+          <ion-icon name="aperture"></ion-icon>
+          <span style="padding-right: 20px">Camera </span>
+        </button>
+        <button end icon-only ion-button color="primary" (click)="openGaleria()">
+          <ion-icon name="image"></ion-icon>
+          <span style="padding-right: 20px">Galeria</span>
+        </button>
+      </ion-buttons>
+    
+      <br>
+    
+      <img [src]="foto || '../../assets/imgs/sem-img.png'" style="height: 280px">
+
+    <form [formGroup]="formGroup" (ngSubmit)="adicionar(); $event.preventDefault()">
+        <ion-list>
+      
+            <ion-input hidden type="text" formControlName="img" value="{{base64Img}}" ></ion-input>
+      
+            <ion-item>
+              <ion-label floating>Descrição</ion-label>
+              <ion-input formControlName="nome" type="text"></ion-input>
+            </ion-item>
+      
+          </ion-list>
+    
+        <button color="secondary" ion-button block type="submit" >Cadastrar</button>
+    
+      </form>
+
+</ion-content>

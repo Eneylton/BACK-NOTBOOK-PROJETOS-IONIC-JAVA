@@ -1,0 +1,57 @@
+
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Finalizar compra</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="painelprodutos">
+    <ion-row *ngFor="let item of items()" class="painelitem">
+      <ion-col col-3>
+        <ion-img src="{{urlBase}}/fotos/{{item.menuItem.foto}}.{{item.menuItem.ext}}" width="100%" height="80"></ion-img>
+      </ion-col>
+      <ion-col col-7>
+        <ion-label class="nomeprod">{{item.menuItem.nome}}</ion-label>
+        <ion-label class="descprod">{{item.menuItem.descricao}}</ion-label>
+        <ion-label class="valorProd">{{item.value() | currency:'BRL':true}} - {{item.quantidade}}x</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <ion-row class="painelTotal">
+    <ion-col col-6>
+      <ion-label class="frete">Valor do frete:</ion-label>
+    </ion-col>
+    <ion-col col-6>
+     <ion-label class="total " text-right> {{frete | currency:'BRL':true }}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row class="painelTotal">
+    <ion-col col-12>
+      <ion-label class="total">Endereço de entrega: </ion-label>
+      <ion-label class="frete">Rua doutor joão barcelos, 846,A</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="painelTotal">
+    <ion-col col-6 class="border-bottom">
+       <ion-label class="total">Total da compra:</ion-label>
+    </ion-col>
+    <ion-col col-6>
+      <ion-label class="total" text-right>{{totalprod | currency:'BRL':true }}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <button class="btn-prosseguir" [disabled]='!items()' (click)="fazerPagamento()" ion-button full>Finalizar pagamento</button>
+    </ion-col>
+  </ion-row>
+
+
+
+</ion-content>

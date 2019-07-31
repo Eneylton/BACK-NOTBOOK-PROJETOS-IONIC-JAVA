@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Coquette;
+  src: url("../../assets/font/Coquette Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+page-cadastrar #Pagecadastrar {
+  font-family: 'Montserrat', sans-serif;
+  background: #e43f3f;
+  color: #fff; }
+  page-cadastrar #Pagecadastrar .space15 {
+    margin: 15px 0; }
+  page-cadastrar #Pagecadastrar .space20 {
+    margin: 20px 0; }
+  page-cadastrar #Pagecadastrar .space40 {
+    margin: 40px 0; }
+  page-cadastrar #Pagecadastrar .item-md, page-cadastrar #Pagecadastrar .item-ios {
+    background: transparent;
+    padding: 0; }
+    page-cadastrar #Pagecadastrar .item-md ion-label, page-cadastrar #Pagecadastrar .item-ios ion-label {
+      color: #fff; }
+    page-cadastrar #Pagecadastrar .item-md input, page-cadastrar #Pagecadastrar .item-ios input {
+      color: #fff; }
+      page-cadastrar #Pagecadastrar .item-md input::placeholder, page-cadastrar #Pagecadastrar .item-ios input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #fff;
+        opacity: 1;
+        /* Firefox */ }
+      page-cadastrar #Pagecadastrar .item-md input:-ms-input-placeholder, page-cadastrar #Pagecadastrar .item-ios input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #fff; }
+  page-cadastrar #Pagecadastrar .button-login {
+    background: #cc1d1d;
+    border-color: #cc1d1d;
+    color: #fff;
+    padding: 20px;
+    width: 100%; }
+  page-cadastrar #Pagecadastrar .logo {
+    font-family: 'Coquette';
+    margin: 0px 0;
+    font-size: 60px;
+    text-align: center; }
+  page-cadastrar #Pagecadastrar .registrar {
+    text-align: center;
+    font-size: 17px; }
+    page-cadastrar #Pagecadastrar .registrar a {
+      color: #fff; }
+
+/*# sourceMappingURL=cadastrar.css.map */

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Galeria"/>
+<aop-project name="jpa-crud"/>
+<aop-project name="crud"/>
+</aop-reference-model>

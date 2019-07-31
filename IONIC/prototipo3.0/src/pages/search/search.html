@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+    <img style="margin-left:80px; width:100px; height: 43px;" src="./assets/images/home.gif" />
+    <ion-fab right top>
+      <button style="background-color:#fff;
+              margin-top:2px" (click)="openCart()">
+        <ion-icon style="font-size:25px" color="dark" name="cart"></ion-icon>
+      </button>
+    </ion-fab>
+
+  </ion-navbar>
+
+  <ion-toolbar color="danger">
+    <ion-searchbar placeholder="Pesquisar" [(ngModel)]="searchQuery" (search)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="cards-bg">
+
+  <ion-card *ngFor="let product of products">
+
+      <img [src]="product.featured_src" />
+
+    <ion-card-content>
+      <ion-card-title>
+
+          <span style="font-size: 18px" [innerHTML]="product.title.substr(0, 22) + '...'"></span>
+          <br />
+        <span *ngIf="product.average_rating >= 1">
+          <ion-icon style="color: #d4af37" small name="star"></ion-icon>
+        </span>
+        <span *ngIf="product.average_rating >= 2">
+          <ion-icon style="color: #d4af37" small name="star"></ion-icon>
+        </span>
+        <span *ngIf="product.average_rating >= 3">
+          <ion-icon style="color: #d4af37" small name="star"></ion-icon>
+        </span>
+        <span *ngIf="product.average_rating >= 4">
+          <ion-icon style="color: #d4af37" small name="star"></ion-icon>
+        </span>
+        <span *ngIf="product.average_rating >= 5">
+          <ion-icon style="color: #ffc400" small name="star"></ion-icon>
+        </span>
+      </ion-card-title>
+
+      <p>
+          <span [innerHTML]="product.short_description.substr(0, 25) + '...'"></span>
+          <span [innerHTML]="product.price_html"></span>
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="secondary" icon-start>
+          <ion-icon name='heart'></ion-icon>
+          Desejo
+        </button>
+      </ion-col>
+
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-start (click)="openProductPage(product)">
+          <ion-icon name='list'></ion-icon>
+         Detalhes
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

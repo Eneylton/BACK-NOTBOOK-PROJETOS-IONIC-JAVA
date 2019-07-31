@@ -1,0 +1,53 @@
+<ion-header>
+
+    <ion-navbar color="light">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  
+  
+      <img style="margin-left:60px; width:100px; height: 43px;" src="./assets/imgs/home.gif" />
+      <ion-fab right top>
+        <button style="background-color:#fff;
+                margin-top:2px">
+           <ion-icon class="fa-opencart"></ion-icon> 
+        </button>
+      </ion-fab>
+  
+    </ion-navbar>
+  
+  </ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let item of items">
+        <ion-card>
+          <img src="{{item.img}}" style="padding: 7px;">
+
+          <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                 <h3 style="font-weight: 600">Vestido Long</h3>
+                </ion-col>
+               
+                <ion-col col-12>
+                  R$ 5.000,00
+                </ion-col>
+
+                <ion-col col-12>
+                    <button color="dark" ion-button block  >
+                        Visualizar
+                     </button>
+                   </ion-col>
+
+            </ion-row>
+          </ion-grid>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

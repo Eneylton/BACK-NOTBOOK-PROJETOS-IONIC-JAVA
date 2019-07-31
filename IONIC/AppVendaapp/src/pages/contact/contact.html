@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+    <ion-title>Pesquisar</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Digite o nome do produto" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-grid *ngIf="items.length<=0">
+    <ion-row>
+      <ion-col text-center>
+        <ion-icon name="ios-search"></ion-icon>
+        <ion-label class="aguardando">Aguardando a sua pesquisa</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<ion-grid class="maisprod" *ngIf="items">
+  <ion-row>
+    <ion-col class="prod animate-in-primary" *ngFor="let hero of items; trackBy: hero?.foo" col-12>
+      <ion-grid>
+        <ion-row (click)="verItem(hero)">
+          <ion-col col-3>
+            <img src="{{urlBase}}/fotos/{{hero.foto}}-th.{{hero.ext}}"
+                 height='73'>
+          </ion-col>
+          <ion-col col-9>
+            <ion-label class="valor">{{hero.valor | currency:'BRL':true}}</ion-label>
+            <ion-label class="titulo">{{hero.nome}}</ion-label>
+            <ion-label class="descProd">{{hero.descricao}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-infinite-scroll (ionInfinite)="getMore($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-content>

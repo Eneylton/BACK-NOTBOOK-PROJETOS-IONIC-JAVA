@@ -1,0 +1,42 @@
+<!--
+  Generated template for the FinalizadosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>finalizados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="contant">
+  <ion-grid >
+    <ion-row class="painel" *ngFor="let hero of obj; trackBy: hero?.foo">
+      <ion-col col-12 class="data">
+        {{hero.data | date: 'dd/MM/yyyy' }}
+      </ion-col>
+      <ion-col col-12 class="orcamento">
+        Orçamento #{{hero.id}}
+      </ion-col>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item no-padding>
+            <ion-label col-8>Frete</ion-label>
+            <ion-label text-right>{{hero.frete | currency:'BRL':true}}</ion-label>
+          </ion-item>
+          <ion-item no-padding>
+            <ion-label col-8>Total da compra</ion-label>
+            <ion-label text-right>{{hero.total | currency:'BRL':true}}</ion-label>
+          </ion-item>
+          <ion-item no-padding>
+            <p class="alert-success">Finalizado</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

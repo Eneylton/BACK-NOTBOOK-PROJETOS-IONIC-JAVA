@@ -1,0 +1,31 @@
+<ion-menu [content]="content">
+
+  <ion-content>
+
+    <ion-row class="topmenu">
+      <ion-col col-1>
+
+      </ion-col>
+      <ion-col col-10>
+        <ion-label>João das coves</ion-label>
+        <ion-label>joaodascoves@gmail.com</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="inicioLogin()">
+        <ion-icon name="md-log-in"></ion-icon> Fazer login
+      </button>
+      <button *ngIf="this.dados!='erro'" menuClose ion-item (click)="logout()">
+        <ion-icon name="md-exit"></ion-icon> Sair
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

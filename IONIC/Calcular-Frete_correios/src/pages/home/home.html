@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="cinza">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Calcular Frete</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form novalidate [formGroup]="contatoForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-item-group>
+            <ion-item-divider color="light">Digite as Informações</ion-item-divider>
+            <ion-item>
+              <ion-input formControlName="valor" type="text" name="valor" placeholder="Valor" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Frete</ion-label>
+              <ion-select formControlName="check">
+                <ion-option value="0" selected="true">Selecione</ion-option>
+                <ion-option value="40010">PAC</ion-option>
+                <ion-option value="40045">SEDEX</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="cep" type="text" name="cep" placeholder="Cep" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <button style="padding:20px" ion-button icon-only block color="secondary" (click)="getBuscaFrete()">
+                    <ion-icon name="md-clipboard"></ion-icon><span style="padding:10px">Calcular</span>
+                  </button>
+
+            </ion-item>
+          </ion-item-group>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <hr>
+  <ion-card padding>
+     
+
+      <ion-card>
+     
+        <ion-list>
+          <button ion-item>
+            <ion-icon style="color: darkorange" class="fa-id-card-o" item-start></ion-icon>
+            R$ {{valorRetornoFrete}}
+          </button>
+      
+          <button ion-item>
+            <ion-icon style="color: greenyellow" class="fa-motorcycle " item-start></ion-icon>
+            Prazo de Entrega:  {{prazo}} Dias
+          </button>
+      
+          <button ion-item>
+            <ion-icon style="color:fuchsia" class="fa-star-o" item-start></ion-icon>
+            {{totalFrete}}
+          </button>
+      
+         
+        </ion-list>
+      </ion-card>
+  </ion-card>
+
+</ion-content>

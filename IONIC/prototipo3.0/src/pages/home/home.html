@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title style="text-align:center">
+      <img style="width:100px; height:42px; margin-left: 0px"  src="./assets/images/home.gif" />
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only large color="dark" (click)="openCart()">
+        <ion-icon class="fa-opencart"></ion-icon> 
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-toolbar >
+    <ion-searchbar  animated="true" autocomplete="on"  placeholder="Pesquisar" [(ngModel)]="searchQuery" (search)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content no-padding>
+
+ 
+
+  <ion-card>
+    <ion-slides #productSlides autoplay="150000" pager>
+      <ion-slide *ngFor="let number of [3,2,1,4]">
+        <img src="./assets/images/{{number}}.jpg" />
+      </ion-slide>
+
+    </ion-slides>
+  </ion-card>
+
+    <ion-list>
+
+      <ion-card *ngFor="let category of categories" class="card-background-page">
+        <ion-item >
+
+          <img src="{{ category.image }}" />
+          <div style="margin-left:-20px; text-align: center" class="card-title">
+            {{category.name}} <br />
+            <button style="padding:10px" ion-button icon-only ion-button outline color="danger"
+            (click)="openCategoryPage(category)">
+          <ion-icon name="md-log-in"></ion-icon> <span style="padding:5px"> Visite a Loja</span>
+          </button>
+          </div>
+
+
+        </ion-item>
+
+      </ion-card>
+  </ion-list>
+
+  
+
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Lista de Estado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup]="formGroup" (ngSubmit)="adicionar(); $event.preventDefault()">
+        <ion-list>
+        
+          <ion-item>
+            <ion-label floating>Nome</ion-label>
+            <ion-input formControlName="nome" type="text"></ion-input>
+          </ion-item>
+      
+        </ion-list>
+    
+        <button color="secondary" ion-button block type="submit" [disabled]="formGroup.invalid">Criar conta</button>
+    
+      </form>
+
+</ion-content>

@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Coquette;
+  src: url("../../assets/font/Coquette Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+page-login #Pagelogin {
+  font-family: 'Montserrat', sans-serif;
+  background: #e43f3f;
+  color: #fff; }
+  page-login #Pagelogin .space15 {
+    margin: 15px 0; }
+  page-login #Pagelogin .space20 {
+    margin: 20px 0; }
+  page-login #Pagelogin .space40 {
+    margin: 40px 0; }
+  page-login #Pagelogin .item-md, page-login #Pagelogin .item-ios {
+    background: transparent;
+    padding: 0; }
+    page-login #Pagelogin .item-md ion-label, page-login #Pagelogin .item-ios ion-label {
+      color: #fff; }
+    page-login #Pagelogin .item-md input, page-login #Pagelogin .item-ios input {
+      color: #fff; }
+      page-login #Pagelogin .item-md input::placeholder, page-login #Pagelogin .item-ios input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #fff;
+        opacity: 1;
+        /* Firefox */ }
+      page-login #Pagelogin .item-md input:-ms-input-placeholder, page-login #Pagelogin .item-ios input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #fff; }
+  page-login #Pagelogin .button-login {
+    background: #cc1d1d;
+    border-color: #cc1d1d;
+    color: #fff;
+    padding: 20px;
+    width: 100%; }
+  page-login #Pagelogin .logo {
+    font-family: 'Coquette';
+    margin: 40px 0;
+    font-size: 60px;
+    text-align: center; }
+  page-login #Pagelogin .registrar {
+    text-align: center;
+    font-size: 17px; }
+    page-login #Pagelogin .registrar a {
+      color: #fff; }
+
+/*# sourceMappingURL=login.css.map */

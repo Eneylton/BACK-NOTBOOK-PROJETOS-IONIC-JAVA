@@ -1,0 +1,37 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="product|async;let _product">{{_product.name}}</ion-title>
+    <ion-buttons end>
+
+      <button ion-button icon-only clear navPush="MyCartPage">
+          <ion-icon name="cart"></ion-icon>
+          <ion-badge color="danger">{{cart.items.length}}</ion-badge> 
+      </button>
+    
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+        <ion-card *ngIf="product|async;let _product;else loading" col-xl-12 offset-12>
+          <img [src]="_product.picture">
+          <ion-card-content>
+            <ion-card-title>{{_product.name}}</ion-card-title>
+            <p>R$ {{_product.price}}</p>
+          </ion-card-content>
+        </ion-card>
+
+        <button full ion-button small (click)="addItem(product)">
+          Adicionar
+        </button>
+       
+        <ng-template #loading>
+          <h2>Carregando...</h2>
+        </ng-template>    
+    
+</ion-content>

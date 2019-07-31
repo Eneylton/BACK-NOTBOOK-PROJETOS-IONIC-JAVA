@@ -1,0 +1,73 @@
+<ion-menu [content]="content">
+    <ion-header hidden>
+      <ion-toolbar color="danger">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="card-background-page">
+
+      <ion-card>
+        <img src="./assets/images/45.jpg" />
+
+      </ion-card>
+
+
+      <ion-list>
+        <ion-item-divider color="danger"><b>CATEGORIAS</b></ion-item-divider>
+
+        <ion-card *ngFor="let category of categories">
+          <ion-item color="light" text-wrap (click)="openCategoryPage(category)" menuClose>
+            <ion-icon [class]="category.icon" item-left ></ion-icon>
+            <h2> {{ category.name }} </h2>
+            <p> {{ category.description }}</p>
+          </ion-item>
+
+          <!-- Optional Subcategories Display -->
+
+          <ion-item *ngFor="let sub of category.subCategories" text-wrap (click)="openCategoryPage(sub)" menuClose>
+            <ion-icon class="fa-angle-right" item-left small></ion-icon>
+            <h2> {{ sub.name }} </h2>
+            <!-- <p> {{ sub.description }}</p> -->
+
+          </ion-item>
+        </ion-card>
+
+        <ion-item-divider color="danger">Sua conta</ion-item-divider>
+
+        <ion-item (click)="openPage('signup')" menuClose *ngIf="!loggedIn">
+          <ion-icon name="md-clipboard" item-left large></ion-icon>
+          <h2>Cadastre-se</h2>
+          <p>Crie uma nova conta !</p>
+        </ion-item>
+
+        <ion-item (click)="openPage('login')" menuClose *ngIf="!loggedIn">
+          <ion-icon name="log-in" item-left large></ion-icon>
+          <h2>Login</h2>
+          <p>Entre com login e senha</p>
+        </ion-item>
+
+        <ion-item *ngIf="loggedIn" menuClose>
+          <ion-icon name="contact" item-left large></ion-icon>
+          <h2>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || "" }}</h2>
+          <p>{{user.email}}</p>
+        </ion-item>
+
+        <ion-item *ngIf="loggedIn" (click)="openPage('cart')" menuClose>
+          <ion-icon name="cart" item-left large></ion-icon>
+          <h2>Seu carrrinho</h2>
+          <p>Veja seus produtos</p>
+        </ion-item>
+
+        <ion-item *ngIf="loggedIn" (click)="openPage('logout')" menuClose>
+          <ion-icon name="log-out" item-left large></ion-icon>
+          <h2>Sair</h2>
+          <p>de sua conta</p>
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-nav #content [root]="homePage"></ion-nav>

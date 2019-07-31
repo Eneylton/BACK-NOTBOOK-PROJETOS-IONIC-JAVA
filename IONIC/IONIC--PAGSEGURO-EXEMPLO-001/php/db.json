@@ -1,0 +1,47 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Casaco Bege",
+      "price": 23.37,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20000453_006_original_4.jpg?1559940447"
+    },
+    {
+      "id": 2,
+      "name": "Sai Rodada",
+      "price": 45.34,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20021767_124_original_4.jpg?1558983599"
+    }
+	,
+    {
+      "id": 3,
+      "name": "Blusa Clorida",
+      "price": 80.34,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20017387_212_original_4.jpg"
+    }
+	,
+    {
+      "id": 4,
+      "name": "Blusa Estampada",
+      "price": 30.34,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20021750_254_original_4.jpg"
+    }
+	,
+    {
+      "id": 5,
+      "name": "Blusa Massa",
+      "price": 31.34,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20021153_002_original_4.jpg"
+    }
+	,
+    {
+      "id": 6,
+      "name": "Blusa Bacana",
+      "price": 31.34,
+      "picture": "https://res.cloudinary.com/amarotech/image/fetch/c_limit,f_auto,dpr_1,w_440/v1/https://cdn.amaro.com/images/products/20004337_002_original_4.jpg"
+    }
+  ],
+  "categories": [
+    {"name": "Roupas"}
+  ]
+}

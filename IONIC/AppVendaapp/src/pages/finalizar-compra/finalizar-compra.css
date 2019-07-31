@@ -1,0 +1,67 @@
+page-finalizar-compra .text {
+  font-size: 20px;
+  font-weight: 400;
+
+  color: #333;
+  text-align: center; }
+page-finalizar-compra .carregando {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px; }
+page-finalizar-compra .painelprodutos {
+  background: #eeeeee; }
+page-finalizar-compra .painelitem {
+  background-color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  border-bottom: 1px solid #b4b4b4; }
+page-finalizar-compra .nomeprod {
+  color: #333;
+  font-weight: 600;
+  font-size: 20px;
+
+  margin: 0; }
+page-finalizar-compra .descprod {
+  color: #9c9c9c;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0; }
+page-finalizar-compra .valorProd {
+  font-size: 22px;
+  font-weight: 700;
+
+  color: #333;
+  margin-top: 5px; }
+page-finalizar-compra .btnprod {
+  background: transparent;
+  border: none;
+  box-shadow: none; }
+  page-finalizar-compra .btnprod span {
+    color: #333;
+    font-size: 25px; }
+page-finalizar-compra .painelTotal {
+  background: #fff;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19); }
+  page-finalizar-compra .painelTotal .total {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333; }
+  page-finalizar-compra .painelTotal .btnfinalizar {
+    display: block;
+    background: #607D8B;
+    padding: 25px;
+    font-size: 18px; }
+page-finalizar-compra .btn-prosseguir {
+  width: 100%;
+  padding: 25px;
+  background: #e62f17;
+  border-radius: 0; }
+  page-finalizar-compra .btn-prosseguir span {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 18px; }
+
+/*# sourceMappingURL=finalizar-compra.css.map */

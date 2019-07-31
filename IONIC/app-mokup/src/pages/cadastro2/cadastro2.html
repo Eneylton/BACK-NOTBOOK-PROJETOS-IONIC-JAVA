@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Cadastro</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <form [formGroup]="formGroup">
+      <ion-list>
+  
+        <ion-item>
+          <ion-label floating>Nome</ion-label>
+          <ion-input formControlName="nome" type="text"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+  
+  
+        <ion-item>
+          <ion-label floating>Whatsapp</ion-label>
+          <ion-input formControlName="whatsapp" type="text"></ion-input>
+        </ion-item>
+  
+    
+          <ion-item>
+              <ion-label>Sexo</ion-label>
+              <ion-select #myselect
+              item-content
+              formControlName="user"
+              [(ngModel)]="user"
+              itemValueField="id"
+              itemTextField="nome"
+              canSearch="true"
+              
+              (onChange)="sexoChange($event)" >
+
+      
+              </ion-select>
+            </ion-item>
+      
+  
+      </ion-list>
+  
+      <button ion-button block type="submit">Editar</button>
+  
+    </form>
+  
+  </ion-content>

@@ -1,0 +1,51 @@
+page-login {
+  .scroll-content {
+    margin-top: 0 !important;
+  }
+  .logo {
+    width: 60%;
+  
+    margin-right: -45px;
+    padding-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  span {
+    color: white;
+  }
+  .slide-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .slide-zoom {
+  
+    height: 100%;
+  }
+  ion-slides {
+    height: 100vh;
+  }
+  ion-item {
+    color: white !important;
+    padding-left: 10px !important;
+    margin-bottom: 10px;
+    background-color: transparent !important;
+    font-size: 0.9em;
+  }
+  ::placeholder {
+    color: rgb(54, 54, 54) !important;
+    font-size: 1.0em;
+  }
+  .login-container {
+    color: white;
+    position: absolute;
+    top: 0;
+    padding: 10vw;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  ion-button {
+    opacity: 0.8;
+  }
+}

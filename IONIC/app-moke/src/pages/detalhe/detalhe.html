@@ -1,0 +1,116 @@
+<ion-header>
+
+    <ion-navbar color="light">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  
+  
+      <img style="margin-left:60px; width:100px; height: 43px;" src="./assets/imgs/home.gif" />
+      <ion-fab right top>
+        <button style="background-color:#fff;
+                margin-top:2px">
+           <ion-icon class="fa-opencart"></ion-icon> 
+        </button>
+      </ion-fab>
+  
+    </ion-navbar>
+  
+  </ion-header>
+
+<ion-content padding>
+
+    <h5 style="font-weight: 400; text-align: center;">Vestido longo</h5>
+
+  <ion-slides autoplay="3000" loop="true" >
+    
+    <ion-slide *ngFor="let item of items">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+
+              <img [src]="item.img" />
+
+          </ion-col>
+         
+          <ion-col col-6>
+            
+            <span *ngIf="item.range >= 5">
+              <ion-icon style="color: #f1ba04" small name="star"></ion-icon>
+              <ion-icon style="color: #f1ba04" small name="star"></ion-icon>
+              <ion-icon style="color: #f1ba04" small name="star"></ion-icon>
+              <ion-icon style="color: #f1ba04" small name="star"></ion-icon>
+            </span>
+          </ion-col>
+
+          <ion-col col-6>
+            <h5>R$ 5.000,00</h5>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <br><br>
+    </ion-slide>
+  
+  </ion-slides>
+
+  <br>
+
+  <ion-row>
+
+      <ion-col col-6 style="background-color: rgb(200, 200, 200)">
+        <span>VENDEDOR(AR)</span>
+      </ion-col>
+    
+      <ion-col col-6 style="text-align:right;  background-color: rgb(200, 200, 200)">
+        <span>LOJA</span>
+      </ion-col>
+
+      <ion-col col-6 >
+          <span>Eneylton Barros.</span>
+        </ion-col>
+
+        <ion-col col-6 style="text-align-last:justify">
+            <button small ion-button icon-left block color="danger" (click)="addToCart(product)">
+                <ion-icon name="log-in"></ion-icon>
+                <span style="padding: 0px"> Minha Loja</span>
+              </button>
+          </ion-col>
+
+  </ion-row>
+  <br>
+  <ion-row>
+
+    <ion-col col-6 style="background-color: rgb(200, 200, 200)">
+      <span>AVALIAÇÕES</span>
+    </ion-col>
+    <ion-col col-6 style="text-align:right;  background-color: rgb(200, 200, 200)">
+      <span>COMENTÁRIOS</span>
+    </ion-col>
+
+    <ion-col col-6 >
+         <span >
+          
+            <ion-icon style="color: #f1ed04" small name="star"></ion-icon>
+            <ion-icon style="color: #f1ed04" small name="star"></ion-icon>
+            <ion-icon style="color: #f1ed04" small name="star"></ion-icon>
+            <ion-icon style="color: #f1ed04" small name="star"></ion-icon>
+            <ion-icon style="color: #f1ed04" small name="star"></ion-icon>
+
+         </span>
+        
+      </ion-col>
+      <ion-col col-6 style="text-align-last:justify">
+        <span>Vestidos muito bonito elegante gostei muito recomendo.</span>
+      </ion-col>
+  
+
+  </ion-row>
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <button ion-button icon-left block color="secondary" (click)="addToCart(product)">
+        <ion-icon name="basket"></ion-icon> {{ requireOptions ? 'Add Produto ' : 'Add Produto ' + 'R$' + ' ' + productPrice}}
+      </button>
+    </ion-toolbar>
+  </ion-footer>

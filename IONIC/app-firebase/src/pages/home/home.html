@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>CRUD STORAGE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-list>
+
+    <ion-card *ngFor="let item of listarContatos" [ngClass]="{'item-inactive': !item.contato.status}">
+
+      <ion-card-header>
+        <h1>
+        {{item.contato.nome}}
+        </h1>
+      </ion-card-header>
+
+      <ion-card-content>
+        <h4>
+            <p>Telefone: {{item.contato.telefone}}</p> 
+             Data: {{item.contato.data | date:'dd/MM/yyyy'}}
+        </h4>
+      </ion-card-content>
+
+      <ion-row>
+          <ion-col col-4>
+          <button ion-button clear (click)="editarContato(item)">
+            <ion-icon name="create"></ion-icon> 
+            
+            <div style="padding:5px">Editar</div>
+          </button>
+            </ion-col>
+
+            <ion-col col-4>
+                <button ion-button clear (click)="removerContato(item)">
+                    <ion-icon name="trash"></ion-icon> 
+                    
+                    <div style="padding:5px">Excluir</div>
+                  </button>
+              </ion-col>
+
+              <ion-col col-4>
+
+                  <a href="tel:{{item.contato.telefone}}" ion-button clear>
+                      <ion-icon name="call"></ion-icon> 
+                      
+                      <div style="padding:5px">Ligar</div>
+                  </a>
+                </ion-col>
+
+            </ion-row>
+
+     
+    </ion-card>
+
+  </ion-list>
+
+  <ion-fab right bottom>
+
+      <button ion-fab color="primary" (click)="adicionarContatos()">
+          <ion-icon name="add"></ion-icon>
+          
+      </button>
+
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div padding>
+    <ion-segment [(ngModel)]="paymentMethod">
+      <ion-segment-button *ngFor="let payment of paymentMethods" [value]="payment.name">
+        {{payment.name}}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="paymentMethod">
+    <div *ngSwitchCase="'BOLETO'">
+      area do boleto
+    </div>
+
+    <div *ngSwitchCase="'CREDIT_CARD'">
+      <ion-item>
+        
+        <ion-input placeholder="Nº Cartão" type="text" [(ngModel)]="creditCard.num"></ion-input>
+      </ion-item>
+      <ion-item>
+      
+        <ion-input placeholder="Cod. Seguraça" type="text" [(ngModel)]="creditCard.cvv"></ion-input>
+      </ion-item>
+      <ion-item>
+      
+        <ion-input placeholder="Mês - Expiração" type="text" [(ngModel)]="creditCard.monthExp"></ion-input>
+      </ion-item>
+      <ion-item>
+      
+        <ion-input placeholder="Ano - Expiração" type="text" [(ngModel)]="creditCard.yearExp"></ion-input>
+      </ion-item>
+    </div>
+
+    <div *ngSwitchCase="'BALANCE'">
+      area do balanço
+    </div>
+  </div>
+  <ion-card>
+    <ion-card-header text-center>
+      Total a pagar: <strong>{{cart.total}}</strong>
+    </ion-card-header>
+    <ion-card-content>
+      <button ion-button full (click)="makePayment()">Concluir pagamento</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

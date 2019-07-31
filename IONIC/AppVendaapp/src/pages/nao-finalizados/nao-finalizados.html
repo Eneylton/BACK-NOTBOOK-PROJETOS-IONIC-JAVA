@@ -1,0 +1,57 @@
+<!--
+  Generated template for the NaoFinalizadosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>nao-finalizados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="contant">
+
+
+  <ion-grid>
+    <ion-row class="painel" *ngFor="let hero of obj; trackBy: hero?.foo">
+      <ion-col col-12 class="data">
+        {{hero.data | date: 'dd/MM/yyyy' }}
+      </ion-col>
+      <ion-col col-12 class="orcamento">
+        Orçamento #{{hero.id}}
+      </ion-col>
+      <ion-col col-12>
+
+        <ion-list>
+          <ion-item no-padding>
+            <ion-label col-8>Frete</ion-label>
+            <ion-label text-right>{{hero.frete | currency:'BRL':true}}</ion-label>
+          </ion-item>
+          <ion-item no-padding>
+            <ion-label col-8>Total da compra</ion-label>
+            <ion-label text-right>{{hero.total | currency:'BRL':true}}</ion-label>
+          </ion-item>
+          <ion-item no-padding>
+            <button class="btn-pagar" (click)="pagar(hero.total, hero.id)" ion-button>Pagar</button>
+            <button class="btn-ver" (click)="verProdutos(hero.id)" ion-button>Ver produtos</button>
+            <button class="btn-cancel" ion-button (click)="deletarItem(hero.id)">Cancelar</button>
+          </ion-item>
+        </ion-list>
+        <ion-list class="produtos"  *ngIf="this.va==hero.id">
+          <ion-item no-padding *ngFor="let linha of obj2" >
+            <ion-label col-8>{{linha.nome}}</ion-label>
+            <ion-label text-right>{{linha.valor | currency:'BRL':true}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="getMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

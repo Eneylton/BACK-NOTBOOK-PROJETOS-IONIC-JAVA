@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form #form="ngForm" novalidate>
+    <ion-list>
+    <ion-item>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+        O campo é obrigatório
+      </ion-item>
+
+      <ion-item>
+        <button full ion-button color="secondary" [disabled]="!form.form.valid" (click)="singIn()"> Entrar  </button>
+      </ion-item>
+    </ion-list>
+
+
+
+  <button  ion-button block color="dark" (click)="createAccount()">
+    Criar conta
+  </button>
+
+  <p text-center>Ou</p>
+
+  <button ion-button block (click)="signInWithEmailPage()">
+    Entrar com e-mail e senha
+  </button>
+
+  <button ion-button block icon-left color="danger" margin-top (click)="signInWithGoogle()">
+    <ion-icon name="logo-google"></ion-icon>
+    Entrar com o Google
+  </button>
+
+  <button ion-button block icon-left color="facebook" margin-top (click)="signInWithFacebook()">
+    <ion-icon name="logo-facebook"></ion-icon>
+    Entrar com o Facebook
+  </button>
+
+  <button ion-button block icon-left color="twitter" margin-top (click)="signInWithTwitter()">
+    <ion-icon name="logo-twitter"></ion-icon>
+    Entrar com o Twitter
+  </button>
+
+</form>
+
+</ion-content>

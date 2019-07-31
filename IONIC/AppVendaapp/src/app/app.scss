@@ -1,0 +1,71 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+body {
+  font-family: 'Montserrat' !important;
+  font-weight: 300;
+}
+ion-app.md{
+  font-family: 'Montserrat' !important;
+  font-weight: 300;
+}
+.ion-content{
+  background: #f8f8f8;
+}
+.toolbar-background{
+  background: #e62f17;
+}
+.toolbar-title-md {
+  color: white;
+}
+.toolbar-title-md{
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+.bar-button-menutoggle-md ion-icon{
+  color: white;
+}
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+  color: #e62f17;
+}
+.tabs-md .tab-button[aria-selected=true] .tab-button-text{
+  color: #e62f17;
+}
+.topmenu{
+  background: #e62f17;
+  padding: 20px 0;
+  ion-label{
+    color: #fff;
+    margin: 0 0 5px;
+  }
+}
+.menu-inner{
+  .content{
+
+    .item-md{
+      ion-label{
+        ion-icon{
+          margin-right: 20px;
+          font-size: 23px;
+        }
+        font-family: 'Montserrat' !important;
+        font-weight: 300;
+        color: #333;
+      }
+    }
+  }
+}

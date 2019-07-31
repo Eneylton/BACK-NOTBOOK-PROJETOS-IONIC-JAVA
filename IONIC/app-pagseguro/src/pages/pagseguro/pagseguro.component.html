@@ -1,0 +1,195 @@
+<!-- <ion-row class="pagseguro" align-items-center *ngIf="!sessionId"> -->
+
+    <ion-row class="pagseguro" align-items-center *ngIf="!paymentMethods">
+        <ion-col col-2 col-md-1>
+          <ion-spinner></ion-spinner>
+        </ion-col>
+        <ion-col>
+          <p>Carregando opções de pagamento...</p>
+        </ion-col>
+      </ion-row>
+      
+      <form [formGroup]="paymentForm" class="pagseguro" *ngIf="paymentMethods" no-padding no-margin margin-top>
+      <!-- <form [formGroup]="paymentForm" class="pagseguro" no-padding no-margin margin-top> -->
+      
+        <h5 margin-top ion-text color="secondary">Forma de pagamento</h5>
+        <ion-segment color="primary" formControlName="paymentMethod" (ionChange)="paymentOptionChanged()">
+          <ion-segment-button value="creditCard">
+            <ion-icon name="card"></ion-icon>
+            <label>Cartão</label>
+          </ion-segment-button>
+          <ion-segment-button value="boleto">
+            <ion-icon name="barcode"></ion-icon>
+            <label>Boleto</label>
+          </ion-segment-button>
+          <!-- <ion-segment-button value="debito">
+                <ion-icon ios="ios-at-outline" md="md-at"></ion-icon>
+              </ion-segment-button> -->
+        </ion-segment>
+      
+        <ion-list no-padding no-margin padding-top>
+          <!-- Formulario de cartao de credito -->
+          <div *ngIf="paymentForm.value.paymentMethod == 'creditCard'">
+      
+            <div formGroupName="card">
+              <ion-item>
+                <ion-label stacked>Número do cartão
+                  <ion-note margin-left ion-text color="danger" *ngIf="(paymentForm.get('card').hasError('number') || paymentForm.get('card').get('cardNumber').hasError('maxlength')) && paymentForm.get('card').get('cardNumber').touched">Número de cartão inválido</ion-note>
+      
+                  <ion-note *ngIf="cardBrand && !paymentForm.get('card').get('cardNumber').invalid" color="primary">
+                    <img [src]="getCardImage()" padding-left>
+                  </ion-note>
+                </ion-label>
+                <ion-input type="tel" maxlength="16" formControlName="cardNumber" [attr.maxlength]="16" (ionChange)="getBrand()"></ion-input>
+              </ion-item>
+      
+              <ion-item>
+                <ion-label stacked>Nome impresso no cartão
+                  <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('card').get('name').valid && paymentForm.get('card').get('name').touched">Campo obrigatório</ion-note>
+                </ion-label>
+                <ion-input type="text" formControlName="name"></ion-input>
+              </ion-item>
+      
+              <ion-row no-padding>
+                <ion-col no-padding col-lg-4 col-6>
+                  <ion-item>
+                    <ion-label stacked>Validade
+                      <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('card').get('month').valid && paymentForm.get('card').get('month').touched">Mês obrigatório</ion-note>
+                    </ion-label>
+                    <!-- <ion-input type="text" formControlName="month" placeholder="Mês"></ion-input> -->
+                    <!-- <ion-datetime displayFormat="MM/YYYY" [max]="dateMax" [min]="dateMin" doneText="OK" cancelText="Cancelar" formControlName="validity"></ion-datetime> -->
+                    <ion-select okText="OK" cancelText="Cancelar" formControlName="month" placeholder="Mês" [selectOptions]="{title: 'Mês'}"> 
+                      <ion-option *ngFor="let month of expirationMonths" [value]="month">{{ month }}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col no-padding col-lg-4 col-6> 
+                  <ion-item>
+                    <ion-label stacked>&nbsp;
+                      <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('card').get('year').valid && paymentForm.get('card').get('year').touched">Ano obrigatório</ion-note>
+                    </ion-label>
+                    <!-- <ion-input type="text" formControlName="year" placeholder="Ano"></ion-input> -->
+                    <ion-select okText="OK" cancelText="Cancelar" formControlName="year" placeholder="Ano" [selectOptions]="{title: 'Ano'}">
+                      <ion-option *ngFor="let year of expirationYears" [value]="year">{{ year }}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+                <ion-col no-padding col-lg-4 col-12>
+                  <ion-item>
+                    <ion-label stacked>Código de segurança
+                      <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('card').get('cvv').valid && paymentForm.get('card').get('cvv').touched">Campo obrigatório</ion-note>
+                    </ion-label>
+                    <ion-input type="tel" maxlength="6" formControlName="cvv" [attr.maxlength]="6"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+      
+      
+      
+              <ion-item *ngIf="installments">
+                <ion-label stacked>Parcelas
+                  <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('card').get('installments').valid && paymentForm.get('card').get('installments').touched">Campo obrigatório</ion-note>
+                </ion-label>
+                <ion-select okText="OK" cancelText="Cancelar" formControlName="installments">
+                  <ion-option *ngFor="let item of installments" [value]="item.quantity">{{ item.quantity }} x {{ item.installmentAmount | currency:'BRL':'symbol-narrow' }}</ion-option>
+                </ion-select>
+              </ion-item>
+      
+              <ion-item>
+                <ion-label stacked>CPF do titular
+                  <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('card').get('cpf').valid && paymentForm.get('card').get('cpf').touched">Campo obrigatório</ion-note>
+                </ion-label>
+                <ion-input type="tel" formControlName="cpf" maxlength="11"></ion-input>
+              </ion-item>
+      
+            </div>
+      
+            <ion-item [class.no-border]="platform.is('core')">
+              <ion-label stacked>Data de nascimento
+                <!-- <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('birthDate').valid && paymentForm.get('birthDate').touched">Campo obrigatório</ion-note> -->
+              </ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" max="2018-12-31" min="1920-01-01" doneText="OK" cancelText="Cancelar" formControlName="ionBirthDate" hideWhen="core"></ion-datetime>
+              
+            </ion-item>
+            <ion-item class="small-datepicker overflow" showWhen="core">
+                <my-date-picker formControlName="mydpBirthdate" [options]="myDatePickerOptions" locale="pt-br"></my-date-picker>    
+            </ion-item>
+      
+            <ion-item>
+              <ion-label stacked>Telefone do titular
+                <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('phone').valid && paymentForm.get('phone').touched">Número inválido</ion-note>
+              </ion-label>
+              <ion-input type="tel" formControlName="phone" maxlength="11"></ion-input>
+            </ion-item>
+      
+            <h6 no-margin no-margin margin-top ion-text color="secondary">Endereço do titular do cartão</h6>
+      
+            <div formGroupName="address">
+              <ion-item>
+                <ion-label stacked>CEP
+                  <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('address').get('postalCode').valid && paymentForm.get('address').get('postalCode').touched">Campo inválido</ion-note>
+                </ion-label>
+                <ion-input type="tel" maxlength="8" formControlName="postalCode" [attr.maxlength]="8" (change)="fetchZip(paymentForm.value.address.postalCode)"></ion-input>
+              </ion-item>
+      
+              <ion-item>
+                <ion-label stacked>Endereço
+                  <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('address').get('street').valid && paymentForm.get('address').get('street').touched">Campo obrigatório</ion-note>
+                </ion-label>
+                <ion-input type="text" formControlName="street"></ion-input>
+              </ion-item>
+      
+              <ion-item>
+                <ion-label stacked>Número
+                  <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('address').get('number').valid && paymentForm.get('address').get('number').touched">Campo obrigatório</ion-note>
+                </ion-label>
+                <ion-input type="text" maxlength="6" formControlName="number"></ion-input>
+              </ion-item>
+            </div>
+      
+          </div>
+      
+          <!-- Formulario de cartao de boleto -->
+          <div *ngIf="paymentForm.value.paymentMethod == 'boleto'" padding-top>
+          <ion-item>
+              <ion-label stacked>CPF do titular
+                <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('cpf').valid && paymentForm.get('cpf').touched">Campo obrigatório</ion-note>
+              </ion-label>
+              <ion-input type="tel" formControlName="cpf" maxlength="11"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Digite seu telefone
+                <ion-note margin-left ion-text color="danger" *ngIf="!paymentForm.get('phone').valid && paymentForm.get('phone').touched">Número inválido</ion-note>
+              </ion-label>
+              <ion-input type="tel" maxlength="11" formControlName="phone"></ion-input>
+            </ion-item>
+      
+            <ion-item class="pagseguro-boleto">
+              <h2 ion-text color="secondary">Ao clicar em "Efetuar pagamento", você receberá o boleto por e-mail.</h2>
+              <!-- <h2 ion-text color="secondary">Você também receberá o boleto por e-mail.</h2> -->
+              <br/>
+              <p ion-text color="secondary">Seu serviço só ficará visível publicamente, após a confirmação de pagamento do boleto.</p>
+            </ion-item>
+          </div>
+      
+      
+        </ion-list>
+      
+        <ion-row justify-content-center>
+          <ion-col col-12 col-lg-6>
+            <div class="pagseguro-area">
+              <p>Pagamento processado pelo
+                <span class="pagseguro-logo"></span>
+              </p>
+            </div>
+          </ion-col>
+          <ion-col right text-right>
+            <button ion-button color="primary" icon-right (click)="doCheckout()" [disabled]="!paymentForm.valid || processing">
+              Efetuar pagamento
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+      
+        </ion-row>
+      </form>

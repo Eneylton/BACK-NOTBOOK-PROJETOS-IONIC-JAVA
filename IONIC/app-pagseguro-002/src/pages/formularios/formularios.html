@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-fab end top>
+      <button ion-button color="dark" >
+        <ion-icon  name="cart" style="padding: 7px;"></ion-icon>
+        <ion-badge color="light">25 </ion-badge>
+      </button>
+
+    </ion-fab>
+    <ion-title>FORMULÁRIOS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-12>
+        <ion-input type="text" placeholder="Email do venddor" [(ngModel)]=" receiverEmail"></ion-input>
+      </ion-col>
+
+      <ion-col col-8>
+        <ion-input type="text" placeholder="Logradouro" [(ngModel)]="listarEndereco.logradouro"></ion-input>
+
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-input type="text" placeholder="Nº" [(ngModel)]="listarEndereco.numero" aria-required="true"></ion-input>
+      </ion-col>
+      <ion-col col-6>
+        <ion-input type="text" placeholder="Bairro" [(ngModel)]="listarEndereco.bairro"></ion-input>
+      </ion-col>
+      <ion-col col-6>
+        <ion-input type="text" placeholder="Cidade" [(ngModel)]="listarEndereco.cidade"></ion-input>
+      </ion-col>
+      <ion-col col-6>
+        <ion-input type="text" placeholder="UF" [(ngModel)]="listarEndereco.uf"></ion-input>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  <button color="dark" medium ion-button full type="submit" (click)="opneView()">Enviar</button>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>Listar Categoria</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-fab left bottom>
+    <button ion-fab color="secondary" (click)="openCategoria()">
+      <ion-icon name="star"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list *ngFor="let item of items">
+    <ion-item-sliding>
+      <ion-item>
+
+        <h2>{{ item.nome }}</h2>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="categoriaEditar(item)">
+          <ion-icon name="logo-angular"></ion-icon>
+          Editar
+        </button>
+
+        <button ion-button color="vermelho" (click)="excluirCategoria(item)">
+            <ion-icon name="logo-angular"></ion-icon>
+            Excluir
+          </button>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+page-produto-categoria {
+  .painelProd{
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+    .texto{
+      text-align: center;
+      .tituloprod{
+        font-weight: bold;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: #333;
+      }
+      .descProd{
+        margin-top: 0;
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: dimgrey;
+      }
+      .valorProd{
+        font-size: 16px;
+        color: #555555;
+        font-weight: 400;
+        margin: 0;
+      }
+      .btnCart{
+        background: #e62f17;
+        width: 100%;
+      }
+
+    }
+  }
+  ion-img{
+    background: white;
+  }
+}

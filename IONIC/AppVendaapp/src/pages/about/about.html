@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar primary>
+  <button ion-button menuToggle>
+    <ion-icon name="ios-menu-outline"></ion-icon>
+  </button>
+  <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="ion-content">
+  <div class="banner">
+    <ion-slides>
+      <ion-slide *ngFor="let hero of objbanners">
+        <img src="{{urlBase}}/fotos/{{hero.foto}}-th.{{hero.ext}}" height='132' width='100%'>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-label class="titulos">Destaques <span>(arraste para o lado)</span></ion-label>
+      </ion-col>
+      <ion-col col-12>
+        <ks-swiper-container [options]="options" slides-per-view="4" space-between="5">
+          <ks-swiper-slide class="painelProd margin10 backwhite" *ngFor="let hero of objdestaque">
+            <div class="image" text-center>
+              <img src="{{urlBase}}/fotos/{{hero.foto}}-th.{{hero.ext}}" class="aaa "
+                   height='180'>
+            </div>
+            <div class="texto">
+              <p class="tituloprod">{{hero.nome.substring(0,12)}}...</p>
+              <p class="descProd">{{hero.descricao.substring(0,12)}}...</p>
+              <p class="valorProd">{{hero.valor | currency:'BRL':true}}</p>
+              <button ion-button class="btnCart" (click)="verItem(hero)">Detalhe</button>
+            </div>
+          </ks-swiper-slide>
+        </ks-swiper-container>
+      </ion-col>
+      <ion-col col-12>
+        <ion-label class="titulos">Todos os produtos</ion-label>
+      </ion-col>
+      <ion-col class="painelProd animate-in-primary" col-6 *ngFor="let hero of obj">
+        <div class="image" text-center>
+          <img src="{{urlBase}}/fotos/{{hero.foto}}-th.{{hero.ext}}" class="aaa "
+                   height='180'>
+        </div>
+        <!--<ion-img *ngIf="!hero.foto && !hero.ext" src="./assets/imgs/loadimage2.jpg" height='180' width='100%'></ion-img>-->
+        <div class="texto">
+            <ion-row>
+              <ion-col col-12>
+                <ion-label class="tituloprod">{{hero.nome}}</ion-label>
+                <ion-label class="descProd">{{hero.descricao}}</ion-label>
+              </ion-col>
+              <ion-col col-12>
+                  <ion-label class="valorProd">{{hero.valor | currency:'BRL':true}}</ion-label>
+              </ion-col>
+              <ion-col col-12>
+                <button ion-button class="btnCart" (click)="verItem(hero)">Detalhe</button>
+              </ion-col>
+
+            </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="getMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

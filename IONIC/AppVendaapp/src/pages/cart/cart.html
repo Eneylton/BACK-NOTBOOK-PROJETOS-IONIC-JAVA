@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Carrinho</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content">
+  <div class="vazio"  *ngIf="!items().length">
+    <ion-label>
+      <ion-icon ios="ios-cart" md="md-cart" class="cart"></ion-icon>
+      <ion-label class="titulo">Seu carrinho está vazio</ion-label>
+      <ion-label class="desc">Não sabe o que comprar? Milhões de produtos esperam por você!</ion-label>
+    </ion-label>
+  </div>
+  <div *ngIf="items().length">
+    <ion-row *ngFor="let item of items()" class="painelitem">
+      <ion-col col-3>
+          <ion-img src="{{urlBase}}/fotos/{{item.menuItem.foto}}.{{item.menuItem.ext}}" width="100%" height="80"></ion-img>
+      </ion-col>
+      <ion-col col-7>
+        <ion-label class="nomeprod">{{item.menuItem.nome}} {{item[0]}}</ion-label>
+        <ion-label class="descprod">{{item.menuItem.descricao}}</ion-label>
+        <ion-label class="valorProd">{{item.value() | currency:'BRL':true}} - {{item.quantidade}}x</ion-label>
+      </ion-col>
+      <ion-col col-2>
+        <button (click)="removeItem(item)" class="btnprod" ion-button>x</button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="painelTotal">
+      <ion-col col-12 class="border-bottom">
+        <ion-label class="total">Total da compra: {{total() | currency:'BRL':true }}</ion-label>
+      </ion-col>
+      <ion-col col-12>
+        <button  class="btnfinalizar" ion-button full (click)="rootPage()">Finalizar compra</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

@@ -1,0 +1,23 @@
+<!--<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">-->
+  <!--<div class="flb">-->
+    <!--<div class="Aligner-item Aligner-item&#45;&#45;top"></div>-->
+    <!--<img src="./assets/imgs/smartphone.svg">-->
+    <!--<div class="Aligner-item Aligner-item&#45;&#45;bottom"></div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<!--<ion-header>-->
+  <!--<ion-navbar primary>-->
+    <!--<button ion-button menuToggle>-->
+      <!--<ion-icon name="ios-menu-outline"></ion-icon>-->
+    <!--</button>-->
+    <!--<ion-title>App de Venda</ion-title>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-tabs>
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="ios-home-outline"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Pesquisar" tabIcon="ios-search"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Carrinho" tabIcon="ios-cart-outline"></ion-tab>
+
+</ion-tabs>

@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Coquette Bold;
+  src: url('../../assets/font/Coquette Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+page-inicial-login {
+  #inicalLogin {
+    font-family: 'Montserrat', sans-serif;
+    background: #e62f17;
+    color: #fff;
+    .logo{
+      font-family: 'Coquette';
+      margin: 80px 0 0;
+      //font-family: 'Pacifico', cursive;
+      font-size: 60px;
+      text-align: center;
+    }
+    .subtexto{
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      margin-bottom: 100px;
+      text-align: center;
+      font-size: 20px;
+      display: block;
+    }
+    .btn-login{
+      width: 200px;
+      padding: 25px;
+      background: white;
+      border-radius: 5px;
+      span{
+        color: #e62f17;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+    }
+    .btn-cad{
+      width: 200px;
+      padding: 25px;
+      border-radius: 5px;
+      border-color: #fff;
+      span{
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+    }
+    .voltar{
+      white-space: inherit;
+      line-height: 35px;
+      a{
+        color: #fff;
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+<ion-header>
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categoria</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="categoria">
+    <ion-label>Categorias</ion-label>
+  </ion-list>
+  <ion-list *ngFor="let hero of obj">
+    <button menuClose ion-item (click)="pushPage(hero)">
+      <ion-icon name=""></ion-icon> {{hero.nome}}
+    </button>
+  </ion-list>
+</ion-content>

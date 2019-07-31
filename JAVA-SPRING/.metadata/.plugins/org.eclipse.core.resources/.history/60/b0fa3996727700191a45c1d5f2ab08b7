@@ -1,0 +1,18 @@
+package Programa;
+
+import Model.Pessoa;
+
+public class appCadastro {
+
+	public static void main(String[] args) {
+		
+		Pessoa pes1 = new Pessoa(null,"Eneylton Barros","eneylton@hotmail.com");
+		Pessoa pes2 = new Pessoa(null,"Elias Barros","elias@hotmail.com");
+		Pessoa pes3 = new Pessoa(null,"Maria Barros","maria@hotmail.com");
+		
+		
+		
+
+	}
+
+}

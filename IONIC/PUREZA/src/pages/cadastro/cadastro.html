@@ -1,0 +1,163 @@
+<ion-header no-border >
+  <ion-navbar transparent>
+    <ion-title>Cadastre-se</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form novalidate [formGroup]="registerForm" (ngSubmit)="submitForm()">
+  
+        <ion-list>
+    
+          <ion-row>
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="name" type="text" placeholder="Nome"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="sobrename" type="text" placeholder="Sobre Nome"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-12>
+    
+              <ion-item>
+                <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="telefone" type="text" placeholder="Tel. Residencial"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="celular" type="text" placeholder="Tel. Celular"></ion-input>
+              </ion-item>
+              <br>
+            </ion-col>
+    
+    
+            <ion-col col-12>
+    
+              <ion-item-group>
+                <ion-item-divider color="primary">CRIAR CONTA</ion-item-divider>
+              </ion-item-group>
+    
+            </ion-col>
+    
+            <ion-col col-12>
+    
+              <ion-item>
+                <ion-input formControlName="login" type="text" placeholder="Login"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="senha" type="password" placeholder="senha"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="confirmPassword" type="password" placeholder="Confirmar"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-12>
+    
+              <ion-item-group>
+                <ion-item-divider color="primary">ENDEREÇO DE ENTREGA</ion-item-divider>
+              </ion-item-group>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="cep" type="text" placeholder="CEP" (ionBlur)="buscarEndereco()"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6></ion-col>
+    
+            <ion-col col-12>
+    
+              <ion-item>
+                <ion-input formControlName="endereco" type="text" placeholder="Endereço"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="numero" type="text" placeholder="Nº:"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="bairro" type="text" placeholder="Bairro"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="municipio" type="text" placeholder="Município"></ion-input>
+              </ion-item>
+    
+            </ion-col>
+    
+            <ion-col col-6>
+    
+              <ion-item>
+                <ion-input formControlName="uf" type="text" placeholder="UF"></ion-input>
+              </ion-item>
+              <br>
+            </ion-col>
+    
+    
+            <ion-col col-12>
+    
+              <button ion-button full color="secondary">
+                <ion-icon name="checkmark"></ion-icon>
+                <span style="padding: 5px">Cadastrar</span>
+              </button>
+    
+    
+            </ion-col>
+    
+    
+          </ion-row>
+    
+        </ion-list>
+    
+      </form>
+
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Mapa Formulario Cep</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+          <ion-input type="text" placeholder="CEP" [(ngModel)]="cepValue" (ionBlur)="calculateRoute()" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          
+            <ion-input type="text" placeholder="Endereço" [(ngModel)]="logradouro"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          
+            <ion-input type="text" placeholder="Bairro" [(ngModel)]="bairro"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          
+            <ion-input type="text" placeholder="Cidade" [(ngModel)]="cidade"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          
+            <ion-input type="text" placeholder="UF" [(ngModel)]="uf"></ion-input>
+        </ion-item>
+    
+     
+      </ion-list>
+    
+      <div #map id="map"></div>
+
+</ion-content>

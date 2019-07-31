@@ -1,0 +1,34 @@
+page-perfil {
+  .perfil{
+    background: #e2e2e2;
+    .buttom{
+      background: #e62f17;
+      padding: 23px;
+    }
+    .endereco{
+      background: #fff;
+    }
+    .foto{
+      background: #fff;
+      .fotoround{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #e62f17;
+        margin: 0 auto;
+      }
+      .nome{
+        font-size: 16px;
+        margin: 0 0 10px;
+      }
+    }
+    .titulo{
+      padding: 15px 15px 15px;
+      font-weight: 400;
+      color: #333;
+      font-size: 20px;
+      border-bottom: 1px solid #c6c6c6;
+    }
+
+  }
+}

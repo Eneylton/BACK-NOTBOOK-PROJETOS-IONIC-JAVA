@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>CRUD STORAGE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked> Nome </ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="model.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked> Telefone </ion-label>
+        <ion-input type="tel" name="telefone" [(ngModel)]="model.telefone"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label stacked> Data </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" name="data" [(ngModel)]="model.data"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label stacked> Ativo </ion-label>
+        <ion-checkbox  name="status" [(ngModel)]="model.status"></ion-checkbox>
+    </ion-item>
+
+    
+
+
+  </ion-list>
+
+  <button ion-button block (click)="save()">Salvar</button>
+
+</ion-content>

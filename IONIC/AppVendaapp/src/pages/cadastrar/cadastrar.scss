@@ -1,0 +1,61 @@
+@font-face {
+  font-family: Coquette;
+  src: url('../../assets/font/Coquette Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+page-cadastrar {
+  #Pagecadastrar {
+    font-family: 'Montserrat', sans-serif;
+    background: #e43f3f;
+    color: #fff;
+    .space15 {
+      margin: 15px 0;
+    }
+    .space20 {
+      margin: 20px 0;
+    }
+    .space40 {
+      margin: 40px 0;
+    }
+    .item-md,.item-ios {
+      background: transparent;
+      padding: 0;
+      ion-label {
+        color: #fff;
+      }
+      input {
+        color: #fff;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #fff;
+          opacity: 1; /* Firefox */
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: #fff;
+        }
+      }
+    }
+    .button-login {
+      background: #cc1d1d;
+      border-color: #cc1d1d;
+      color: #fff;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .logo {
+      font-family: 'Coquette';
+      margin: 0 0;
+      //font-family: 'Pacifico', cursive;
+      font-size: 60px;
+      text-align: center;
+    }
+    .registrar {
+      text-align: center;
+      font-size: 17px;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

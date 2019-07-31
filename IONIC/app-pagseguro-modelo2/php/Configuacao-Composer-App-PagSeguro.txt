@@ -1,0 +1,13 @@
+https://lojistapureza.com.br/wp-admin/PagSeguro/servidor/session.php
+
+npm i scriptjs
+
+JSON-SERVE
+Instalar json-server
+npm install -g json-server
+
+Executar o arquivo - db.json
+json-server --watch db.json
+
+API FAKE
+http://localhost:3000/products

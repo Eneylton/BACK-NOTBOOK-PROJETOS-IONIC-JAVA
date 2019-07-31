@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let product of products" text-wrap >
+      <ion-thumbnail item-left>
+        <img [src]="product.images[0].src" />
+      </ion-thumbnail>
+
+      <h2> {{ product.shipping_class }} </h2>
+      <h4> Estoque: {{ product.stock_quantity }} </h4>
+      <h4> {{ product.store_name }} </h4>
+
+
+      <p>
+        <span [innerHTML]="product.description.substr(0, 22) + '...'"></span>
+        <span [innerHTML]="product.price_html"></span>
+      </p>
+
+      <button ion-button icon clear item-right>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

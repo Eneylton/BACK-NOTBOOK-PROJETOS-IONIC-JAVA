@@ -1,0 +1,63 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    
+    <img src="../../assets/imgs/logo.png" style="width: 140px; height:60px">
+  
+  </div>
+</div>
+
+<ion-header no-border>
+ 
+  <ion-navbar color="transp">
+    <button ion-button menuToggle>
+      <ion-icon color="danger" name="menu"></ion-icon>
+    </button>
+
+    <ion-title style="text-align:center">
+      <img style="width:100px; height:45px; margin-left: -10px"  src="./assets/imgs/logo-branco.png" />
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only large color="dark" (click)="openCart()">
+        <ion-icon style="font-size:19px" color="danger" class="fa-opencart"></ion-icon> 
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+ 
+
+</ion-header>
+
+<ion-content fullscreen>
+
+    <ion-slides style="margin-top: -150px !important" #productSlides autoplay="150000" pager>
+      <ion-slide *ngFor="let number of [1,2,3]">
+        <img src="./assets/imgs/{{number}}.jpg" />
+      </ion-slide>
+
+    </ion-slides>
+
+
+    <ion-list>
+
+      
+        <ion-item *ngFor="let category of categories" class="card-background-page" fullscreen >
+
+          <img src="{{ category.image }}" />
+          <div class="card-title">
+            {{category.name}} <br />
+            <button style="padding:10px" ion-button icon-only ion-button outline color="danger"
+            (click)="openCategoryPage(category)">
+          <ion-icon name="md-log-in"></ion-icon> <span style="padding:5px"> Visite a Loja</span>
+          </button>
+          </div>
+
+
+        </ion-item>
+
+  </ion-list>
+
+  
+
+</ion-content>

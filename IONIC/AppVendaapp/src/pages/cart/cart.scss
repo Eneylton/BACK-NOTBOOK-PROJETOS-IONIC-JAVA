@@ -1,0 +1,75 @@
+page-cart {
+  .vazio{
+    padding: 145px 30px;
+    text-align: center;
+    .cart{
+      font-size: 50px;
+    }
+    .titulo{
+      font-size: 27px;
+      font-weight: 500;
+    }
+    .desc{
+      font-size: 22px;
+      font-weight: lighter;
+      text-overflow: unset;
+      white-space: normal;
+    }
+  }
+  .content{
+    background: #eeeeee;
+
+  }
+  .painelitem{
+    background-color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-bottom: 1px solid #b4b4b4;
+  }
+  .nomeprod{
+    color: #333;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0;
+  }
+  .descprod{
+    color: #9c9c9c;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+
+  }
+  .valorProd{
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 5px;
+  }
+  .btnprod{
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    span{
+      color: #333;
+      font-size: 25px;
+    }
+  }
+  .painelTotal{
+    background: #fff;
+
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+    .total{
+      padding: 5px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+    .btnfinalizar{
+      display: block;
+      background: #607D8B;
+      padding: 25px;
+      font-size: 18px;
+    }
+  }
+
+}

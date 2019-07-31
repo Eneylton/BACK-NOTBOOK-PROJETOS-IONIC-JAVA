@@ -1,0 +1,29 @@
+package Programa;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import Model.Pessoa;
+
+public class deletePessoa {
+
+	public static void main(String[] args) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+		
+		EntityManager em = emf.createEntityManager();
+		
+		Pessoa p = em.find(Pessoa.class, 3);
+		
+		em.getTransaction().begin();
+		
+		
+		em.getTransaction().commit();
+		
+		emf.close();
+		em.close();
+
+	}
+
+}
